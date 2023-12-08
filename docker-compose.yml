@@ -19,7 +19,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: event
+      MYSQL_DATABASE: eventProject
       MYSQL_USER: boubou
       MYSQL_PASSWORD: boubou123
       MYSQL_ROOT_PASSWORD: root
