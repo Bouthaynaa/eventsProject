@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  event:
+    image: bouboutaftaf/eventsproject:1.0
+    restart: always
+    environment:
+      - spring.datasource.url=jdbc:mysql://app_db:3306/eventProject?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+      - spring.datasource.username=boubou
+      - spring.datasource.password=boubou123
+    ports:
+      - "8089:8089"
+    depends_on:
+      - mysql_db
+    links:
+      - mysql_db:app_db
+  mysql_db:
+    image: "mysql:5.7.24"
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: event
+      MYSQL_USER: boubou
+      MYSQL_PASSWORD: boubou123
+      MYSQL_ROOT_PASSWORD: root
+ 
+  
